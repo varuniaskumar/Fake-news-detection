@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Checker</title>
+    <link rel="stylesheet" href="./project.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Page 1: Provide Sources -->
+        <div class="card" id="page1">
+            <h2>Provide sources</h2>
+            <p>Where does the source come from?</p>
+            <div class="options">
+                <button class="option-btn">Text</button>
+            </div>
+            <div class="icons">
+                <button class="icon-btn" onclick="openCamera()">📸</button>
+                <button class="icon-btn" onclick="startMic()">🎤</button>
+
+
+                <button class="file-btn" onclick="openFileManager()">📄</button>
+                <input type="file" id="fileInput" style="display: none;" onchange="handleFileSelect(event)">
+
+                <button class="icon-btn">⋮</button>
+            </div>
+            <button class="next-step-btn" onclick="goToPage('page2')">Next step</button>
+        </div>
+
+        <!-- Page 2: Analyzing -->
+        <div class="card" id="page2" style="display: none;">
+            <h2>Analyzing...</h2>
+            <div class="analyzing-section">
+                <input type="text" placeholder="Enter URL here" class="input-url">
+                <button class="verify-btn" onclick="goToPage('page3')">Verify news</button>
+            </div>
+        </div>
+
+        <!-- Page 3: Results -->
+        <div class="card" id="page3" style="display: none;">
+            <h2>Fake news</h2>
+            <div class="result-circle">
+                <p>1.7 / 10</p>
+                <p>Quality of info/source</p>
+            </div>
+            <ul class="results-list">
+                <li class="result-item"><span class="color-indicator red"></span> Misleading header</li>
+                <li class="result-item"><span class="color-indicator orange"></span> Biased or slanted news</li>
+                <li class="result-item"><span class="color-indicator purple"></span> Conspiracy theory</li>
+                <li class="result-item"><span class="color-indicator blue"></span> Clickbait</li>
+            </ul>
+            <button class="report-btn">Report</button>
+        </div>
+    </div>
+    <script src="./project.js"></script>
+</body>
+</html>
